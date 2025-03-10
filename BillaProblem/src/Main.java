@@ -1,5 +1,6 @@
 import java.util.*;
 import java.io.*;//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
@@ -7,6 +8,8 @@ public class Main {
         Queue<Person> cash2 = new LinkedList<>();
         Queue<Person> cash1 = new LinkedList<>();
         Queue<Person> people = new LinkedList<>();
+
+
 
         try {
          //here I am gathering the number of people that wanna enque to pay
@@ -74,12 +77,14 @@ public class Main {
                         }else {
                             cash2.remove();
                         }
+                        
                         break;
                     case "-":
                         System.out.println("Programm is going to shutdown");
                         System.exit(0);
                         break;
-                    default: continue;
+                    default:
+                        continue;
                 }
                 if (cash1.isEmpty() && cash2.isEmpty()){
                     run = false;
@@ -88,9 +93,6 @@ public class Main {
         }catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
     }
 
     public static void gatherNumberofPeople(Queue<Person> people) throws Exception {
