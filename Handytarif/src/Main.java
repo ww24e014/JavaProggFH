@@ -18,12 +18,12 @@ public class Main {
 
 
                System.out.println("Gib mal deine verbrauchten minuten ein: ");
-                sc = new Scanner(System.in);
+               sc = new Scanner(System.in);
 
-                minuten = sc.nextInt();
+               minuten = sc.nextInt();
 
                System.out.println("Gib mal deine verbrauchten minuten ein: ");
-                sms = sc.nextInt();
+               sms = sc.nextInt();
 
                if(minuten < 0){
                    System.out.println("Ungueltige Minuten");
