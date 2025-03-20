@@ -4,6 +4,8 @@ public class Strom {
     public static void main(String[] args) {
 
 
+        List<Float> floatlist = new ArrayList<Float>();
+
         System.out.println("Ein elektronischer Stromzähler nimmt laufend Datenpakete als float Zahlen entgegen und verarbeitet diese.\n" +
                 "Ein Datenpaket darf höchstens 16 Werte beinhalten. Werte kleiner als -100 bzw. Werte größer als 100\n" +
                 "werden ignoriert und sind nicht Bestandteil eines Datenpaketes. Der Wert 999 beendet ein Datenpaket\n" +
@@ -11,12 +13,12 @@ public class Strom {
                 "Werte (Eingabe von N). Von den Werten wird nur der Betrag zur Durchschnittsbildung herangezogen. Sollten\n" +
                 "weniger Werte vorhanden sein, wird die Fehlermeldung „Zu wenige Werte“ ausgegeben.\n" +
                 "Jede weitere Eingabe wird vom Programm ignoriert. Es endet nach spätestens 17 Eingaben.");
-        int counter = 1;
+        int counter = 0;
         float valuesum = 0.0f;
         Scanner sc = new Scanner(System.in);
-        while(counter <= 17) {
+        while(counter <= 16) {
 
-            System.out.println("Gib den " + counter + " Wert ein , 999 beendet die loop: ");
+            System.out.println("Gib den " + (counter+1) + " Wert ein , 999 beendet die loop: ");
             float value = tryParseFloat(sc.nextLine());
             if(Float.isNaN(value)){
                 continue;
@@ -33,14 +35,30 @@ public class Strom {
             }
             if(value >= -100 && value <= 100){
                 counter++;
-                valuesum += value;
+                floatlist.add(value);
                 continue;
             }
             counter++;
+        }
+        System.out.println(floatlist.size());
+        System.out.println("Eingelesen: " + counter);
+        System.out.println("Gib mal die berechneten letzten n wert ein wieviel du berechnen moechtest: ");
+        int n = tryParseIntUnsigned(sc.nextLine());
+        int helpersize = 0;
+        if(counter>1 && counter <=16){
+
+             helpersize = floatlist.size() - counter;
+            for(int i = floatlist.size(); i > helpersize+1; i--){
+                float unsigned = Math.abs(floatlist.get(i-1));
+                valuesum += unsigned;
+            }
+        }else{
+            System.out.println("Zu wenig eingetragene werte in der liste um das zu berechnen, oder zu groß :).");
 
         }
-        System.out.println("Eingelesen: " + counter);
-        System.out.println("Werte: " + valuesum);
+
+        System.out.println("Wert: " + valuesum /n);
+        System.out.println("__________________________--");
     }
 
     public static float tryParseFloat(String str) {
@@ -49,6 +67,20 @@ public class Strom {
         }
         catch (NumberFormatException e) {
             return Float.NaN;
+        }
+    }
+    public static float tryParseFloatUnsigned (float f){
+       try {
+           return Math.abs(f);
+       }catch (NumberFormatException e) {
+           return Float.NaN;
+       }
+    }
+    public static int tryParseIntUnsigned(String str) {
+        try {
+            return Integer.parseUnsignedInt(str);
+        }catch (NumberFormatException ex){
+            return -1;
         }
     }
 
