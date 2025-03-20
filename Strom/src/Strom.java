@@ -3,7 +3,8 @@ import java.util.*;
 public class Strom {
     public static void main(String[] args) {
 
-
+        // aus einfacheits gründen eine liste, --> Aufgabe fürs Wochenende:
+        // selbstimplementierte liste !!!! 
         List<Float> floatlist = new ArrayList<Float>();
 
         System.out.println("Ein elektronischer Stromzähler nimmt laufend Datenpakete als float Zahlen entgegen und verarbeitet diese.\n" +
