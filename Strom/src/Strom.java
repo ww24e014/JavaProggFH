@@ -4,7 +4,7 @@ public class Strom {
     public static void main(String[] args) {
 
         // aus einfacheits gründen eine liste, --> Aufgabe fürs Wochenende:
-        // selbstimplementierte liste !!!! 
+        // selbstimplementierte liste !!!!
         List<Float> floatlist = new ArrayList<Float>();
 
         System.out.println("Ein elektronischer Stromzähler nimmt laufend Datenpakete als float Zahlen entgegen und verarbeitet diese.\n" +
@@ -48,8 +48,8 @@ public class Strom {
         int helpersize = 0;
         if(counter>1 && counter <=16){
 
-             helpersize = floatlist.size() - counter;
-            for(int i = floatlist.size(); i > helpersize+1; i--){
+             helpersize = floatlist.size() - n;
+            for(int i = floatlist.size(); i > helpersize; i--){
                 float unsigned = Math.abs(floatlist.get(i-1));
                 valuesum += unsigned;
             }
