@@ -1,10 +1,12 @@
 import java.util.*;
+import java.util.stream.IntStream;
 
 public class Strom {
     public static void main(String[] args) {
 
         // aus einfacheits gründen eine liste, --> Aufgabe fürs Wochenende:
         // selbstimplementierte liste !!!!
+
         List<Float> floatlist = new ArrayList<Float>();
 
         System.out.println("Ein elektronischer Stromzähler nimmt laufend Datenpakete als float Zahlen entgegen und verarbeitet diese.\n" +
@@ -16,6 +18,8 @@ public class Strom {
                 "Jede weitere Eingabe wird vom Programm ignoriert. Es endet nach spätestens 17 Eingaben.");
         int counter = 0;
         float valuesum = 0.0f;
+        int[] f = new int[23];
+
         Scanner sc = new Scanner(System.in);
         while(counter <= 16) {
 
@@ -85,5 +89,15 @@ public class Strom {
         }
     }
 
+    public static void test(){
+        int[] f = new int[10];
+        for(int i = 0; i<10; i++){
+            f[i] = i*2;
+        }
+        int var1 = Arrays.stream(f).min().getAsInt();
+        int var2 = Arrays.stream(f).max().getAsInt();
+
+        System.out.println(var1 + " " + var2);
+    }
 
 }
